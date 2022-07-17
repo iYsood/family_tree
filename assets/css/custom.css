@@ -1,0 +1,39 @@
+.single-feature {
+  height: 100vh;
+}
+
+#tree {
+  font-family: 'taha-naskh', sans-serif;
+  font-size: 1.2em
+}
+
+#tree text {
+  font-family: 'taha-naskh', sans-serif;
+  font-size: 2em;
+}
+
+.charts_menu {
+  position:absolute;
+  right:30px;
+  top:100px;
+  width:40px;
+  height:50px;
+  cursor:pointer;
+}
+
+.bft-family-menu {
+  right: 6vw;
+}
+
+.chart_view_name {
+  color: #ff0000;
+}
+
+.leaflet-popup, .leaflet-popup-content {
+  font-family: 'taha-naskh', sans-serif;
+  width: 30vw
+}
+
+.leaflet-popup-content {
+  font-size: 1.5em;
+}
