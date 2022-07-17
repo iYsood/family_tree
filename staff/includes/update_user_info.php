@@ -17,7 +17,7 @@ if (isset($_POST)){
 		$password = mysqli_real_escape_string($conn, $_POST['password']);
 		$password = md5($password);
 
-		$sql = "INSERT INTO `users` (username, password, email, permission) VALUES ('$username', '$email', '$password', '$admin_perms')";
+		$sql = "INSERT INTO `users` (username, email, password, permission) VALUES ('$username', '$email', '$password', '$admin_perms')";
 		if ($conn->query($sql)){
 			echo 'تمت إضافة المستخدم بنجاح';
 		}else{
@@ -48,7 +48,7 @@ if (isset($_POST)){
 
 			$sql = "UPDATE users SET username = '$username', email = '$email', password = '$password', permission = '$admin_perms' WHERE id = '$ident';";
 			if ($conn->query($sql)){
-				echo 'success';
+				echo 'تم تحديث المستخدم بنجاح';
 			}else{
 				echo 'خطأ: '. $conn->error;
 			}

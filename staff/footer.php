@@ -30,8 +30,6 @@
         <!-- alertifyjs js -->
         <script src="assets/libs/alertifyjs/build/alertify.min.js"></script>
         <script src="assets/js/alertifyjs.init.js"></script>
-        <!--tinymce js-->
-        <script src="assets/libs/tinymce/tinymce.min.js"></script>
         <!-- init js -->
         <script src="assets/js/pages/form-editor.init.js"></script>
         <script src="assets/libs/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
@@ -47,10 +45,7 @@
         <!-- init js -->
         <script src="assets/js/pages/summernote.init.js"></script>
         <script src="assets/js/dashboard.init.js"></script>
-
-        <!-- nestable2 js -->
-        <script src="assets/libs/nestable2/jquery.nestable.min.js"></script>
-        <script src="assets/js/pages/nestable.init.js"></script>
+        
         <!-- template js -->
         <script src="assets/js/app.js"></script>
         <script src="assets/js/website.js"></script>

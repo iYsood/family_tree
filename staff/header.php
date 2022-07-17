@@ -13,9 +13,6 @@
         <!-- slick css -->
         <link href="assets/libs/slick-slider/slick/slick.css" rel="stylesheet" type="text/css" />
         <link href="assets/libs/slick-slider/slick/slick-theme.css" rel="stylesheet" type="text/css" />
-
-        <!-- jvectormap -->
-        <link href="assets/libs/jqvmap/jqvmap.min.css" rel="stylesheet" />
         <!-- DataTables -->
         <link href="assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
         <link href="assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
@@ -45,18 +42,6 @@
         <!-- JAVASCRIPT -->
         <script src="assets/libs/jquery/jquery.min.js"></script>
         <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <!-- flot plugins -->
-        <script src="assets/libs/flot-charts/jquery.flot.js"></script>
-        <script src="assets/libs/flot-charts/jquery.flot.time.js"></script>
-        <script src="assets/libs/jquery.flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
-        <script src="assets/libs/flot-charts/jquery.flot.resize.js"></script>
-        <script src="assets/libs/flot-charts/jquery.flot.pie.js"></script>
-        <script src="assets/libs/flot-charts/jquery.flot.selection.js"></script>
-        <script src="assets/libs/flot-charts/jquery.flot.stack.js"></script>
-        <script src="assets/libs/flot-spline/js/jquery.flot.spline.min.js"></script>
-        <script src="assets/libs/flot-charts/jquery.flot.crosshair.js"></script>
-        <!-- flot init -->
-        <script src="assets/js/flot.init.js"></script>
     </head>
 
     <body data-sidebar="dark">
@@ -139,6 +124,17 @@
                             </li>
 
                             <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                    <i class="mdi mdi-email-multiple-outline"></i>
+                                    <span>إدارة الشجرة</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded="false">
+                                    <li><a href="view_tree.php">عرض شجري</a></li>
+                                    <li><a href="view_table.php">عرض جدول</a></li>
+                                </ul>
+                            </li>
+
+                            <li>
                                 <a href="./rules.php" class="waves-effect">
                                     <i class="mdi mdi-view-dashboard"></i>
                                     <span>الأخبار والمناسبات</span>
@@ -159,9 +155,9 @@
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
                                     <li><a href="setting_main.php">اعدادات الموقع</a></li>
-                                    <li><a href="setting_about.php">نسب العائلة</a></li>
-                                    <li><a href="setting_main.php">عن العائلة</a></li>
-                                    <li><a href="setting_main.php">من رجالات العائلة</a></li>
+                                    <li><a href="setting_family_lineage.php">نسب العائلة</a></li>
+                                    <li><a href="setting_family_about.php">عن العائلة</a></li>
+                                    <li><a href="setting_family_men.php">من رجالات العائلة</a></li>
                                 </ul>
                             </li>
 

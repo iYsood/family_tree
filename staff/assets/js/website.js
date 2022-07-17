@@ -1,3 +1,20 @@
+$(document).ready( function(){
+  const path = window.location.pathname;
+  const page_end = path.split("/").pop();
+  let page_start = page_end.split(".")[0];
+  page_start = page_start.substr(8);
+  // console.log('page', page_start);
+
+  if (page_start == 'family_lineage' || page_start == 'family_about' || page_start == 'family_men'){
+    console.log('page', page_start);
+    $.get("includes/get_content.php?page="+ page_start, function(data, status){
+      // console.log(data);
+      $('#summernote').summernote("code", data);
+    });
+  }
+})
+
+
 // USERS
 
 function updateUser(id){
@@ -32,6 +49,21 @@ function updateUser(id){
   });
 };
 
+$('.addNewUser').click( function(){
+  $('#updateUser_mainHead').html('اضافة مستخدم جديد');
+  $('#updateUser_username').val(''); //$('#updateUser_username').html(result.name);
+  $('#updateUser_email').val(''); //$('#updateUser_email').html(result.email);
+  $('#updateUser_ident').val(''); //$('#updateUser_ident').html(result.phone);
+  $('#updateUser_action').val('add'); //$('#updateUser_ident').html(result.phone);
+
+  for (let i = 0; i < 15; i++) {
+    // console.log(i);
+    $('#perm_'+ i).prop('checked', false);
+  }
+
+  $('#updateUserModal').modal('show');
+})
+
 function removeUser(id){
   alertify.confirm('هل أنت متأكد من حذف المستخدم ؟', function(){
     $.ajax({
@@ -41,11 +73,11 @@ function removeUser(id){
         success: function(result) {
           alertify.set('notifier','position', 'top-center');
 
-          if (result == 'تم حذف العضو بنجاح'){
+          if (result == 'تم حذف المستخدم بنجاح'){
             alertify.success(result);
             setTimeout(function () {
               location.reload();
-            }, 2500);
+            }, 1500);
           }else{
             alertify.error(result);
           }
@@ -73,6 +105,31 @@ $('#updateUserForm').submit( function(e) {
       }else{
         alertify.error(result);
       }
+    }
+  });
+});
+
+$('#updateContent').submit( function(e) {
+  e.preventDefault();
+  let form = $(this);
+  // let page = $('#page').val();
+  // let content = $('#summernote').val();
+
+  $.ajax({
+    type: "POST",
+    url: 'includes/update_content.php',
+    data: form.serialize(), // serializes the form's elements.
+    success: function(result){
+      alertify.set('notifier','position', 'top-center');
+      if (result == 'تم التحديث بنجاح'){
+        alertify.success(result);
+        setTimeout(function () {
+          location.reload();
+        }, 1500);
+      }else{
+        alertify.error(result);
+      }
+      console.log(result);
     }
   });
 });

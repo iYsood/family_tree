@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="<?php echo $website_settings['website_url']; ?>/assets/css/jquery.fancybox.min.css">
     <link rel="stylesheet" href="<?php echo $website_settings['website_url']; ?>/assets/css/tooltipster.min.css">
     <link rel="stylesheet" href="<?php echo $website_settings['website_url']; ?>/assets/css/cubeportfolio.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin="" />
+    <link rel="stylesheet" href="<?php echo $website_settings['website_url']; ?>/assets/css/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin="" />
     <link rel="stylesheet" href="<?php echo $website_settings['website_url']; ?>/assets/css/style.css">
     <link rel="stylesheet" href="<?php echo $website_settings['website_url']; ?>/assets/css/custom.css">
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

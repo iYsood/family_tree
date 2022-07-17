@@ -13,6 +13,7 @@
                   <div class="col-12">
                       <div class="page-title-box d-flex align-items-center justify-content-between">
                           <h4 class="mb-0 font-size-18">المستخدمين</h4>
+                          <button type="button" class="btn btn-info btn-sm waves-effect waves-light addNewUser" data-toggle="modal" data-target="#updateUserModal">إضافة مستخدم</button>
 
                           <div class="page-title-right">
                               <ol class="breadcrumb m-0">
@@ -78,7 +79,7 @@ for ($i=0; $i < count($all_users); $i++) {
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title mt-0" id="updateUser_mainHead">تحديث بيانات [ عبدالرحمن ]</h5>
+                            <h5 class="modal-title mt-0" id="updateUser_mainHead">اضافة مستخدم جديد</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -96,7 +97,8 @@ for ($i=0; $i < count($all_users); $i++) {
                             </div>
                             <div class="form-group">
                               <label>كلمة المرور</label>
-                              <input type="password" class="form-control" name="password" id="updateUser_password" autocomplete="off" placeholder="اتركه فارغاً لعدم تغييره"/>
+                              <input type="password" class="form-control" name="password" id="updateUser_password" autocomplete="off" />
+                              <small class="text-info">في حال التحديث: اتركه فارغاً لعدم تغييره</small>
                             </div>
                             <div class="form-group">
                               <label>الصلاحيات</label>
