@@ -47,7 +47,7 @@
 
                                   <tbody>
 <?php
-$users = new Users();
+$users = new MainFunc();
 $all_users = $users->get_all();
 // echo "<pre>"; print_r($all_users);
 $b = 0;

@@ -1,0 +1,22 @@
+@media only screen and (min-width: 981px) {
+    #vertical-menu-btn {
+        display: none !important;
+    }
+}
+
+#side-menu li:after {
+  content: "";
+  display: block;
+  height: 1px;
+  width: 100%;
+  margin: 10px;
+  background: #2f3e46;
+}
+
+#side-menu li {
+  margin: 15px 0;
+}
+
+#map {
+  height: 97vh;
+}

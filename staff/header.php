@@ -8,40 +8,43 @@
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
         <meta content="Themesdesign" name="author" />
         <!-- App favicon -->
-        <link rel="shortcut icon" href="assets/images/favicon.ico">
+        <link rel="shortcut icon" href="../assets/images/favicon.ico">
 
         <!-- slick css -->
-        <link href="assets/libs/slick-slider/slick/slick.css" rel="stylesheet" type="text/css" />
-        <link href="assets/libs/slick-slider/slick/slick-theme.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/libs/slick-slider/slick/slick.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/libs/slick-slider/slick/slick-theme.css" rel="stylesheet" type="text/css" />
         <!-- DataTables -->
-        <link href="assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
-        <link href="assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
 
         <!-- Responsive datatable examples -->
-        <link href="assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
         <!-- alertifyjs Css -->
-        <link href="assets/libs/alertifyjs/build/css/alertify.rtl.min.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/libs/alertifyjs/build/css/alertify.rtl.min.css" rel="stylesheet" type="text/css" />
         <!-- alertifyjs default themes  Css -->
-        <link href="assets/libs/alertifyjs/build/css/themes/default.rtl.min.css" rel="stylesheet" type="text/css" />
-        <link href="assets/libs/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet">
-        <link href="assets/libs/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css" rel="stylesheet">
-        <link href="assets/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.css" rel="stylesheet" />
+        <link href="../assets/libs/alertifyjs/build/css/themes/default.rtl.min.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/libs/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet">
+        <link href="../assets/libs/bootstrap-colorpicker/css/bootstrap-colorpicker.min.css" rel="stylesheet">
+        <link href="../assets/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.css" rel="stylesheet" />
         <!-- Summernote css -->
-        <link href="assets/libs/summernote/summernote-bs4.min.css" rel="stylesheet" type="text/css" />
-
+        <link href="../assets/libs/summernote/summernote-bs4.min.css" rel="stylesheet" type="text/css" />
+        <!-- Plugins css -->
+        <link href="../assets/libs/dropzone/min/dropzone.min.css" rel="stylesheet" type="text/css" />
         <!-- nestable2 css -->
-        <link rel="stylesheet" href="assets/libs/nestable2/jquery.nestable.min.css">
+        <link rel="stylesheet" href="../assets/libs/nestable2/jquery.nestable.min.css">
+        <!-- Lightbox css -->
+        <link href="../assets/libs/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css" />
 
         <!-- Bootstrap Css -->
-        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <!-- Icons Css -->
-        <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/css/icons.min.css" rel="stylesheet" type="text/css" />
         <!-- App Css-->
-        <link href="assets/css/app-rtl.css" rel="stylesheet" type="text/css" />
-        <link href="assets/css/extra.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/css/app-rtl.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/css/extra.css" rel="stylesheet" type="text/css" />
         <!-- JAVASCRIPT -->
-        <script src="assets/libs/jquery/jquery.min.js"></script>
-        <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="../assets/libs/jquery/jquery.min.js"></script>
+        <script src="../assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
     </head>
 
     <body data-sidebar="dark">
@@ -56,19 +59,19 @@
                         <div class="navbar-brand-box">
                             <a href="index.php" class="logo logo-dark">
                                 <span class="logo-sm">
-                                    <img src="assets/images/logo-sm-dark.png" alt="" height="22">
+                                    <img src="../assets/images/logo-sm-dark.png" alt="" height="22">
                                 </span>
                                 <span class="logo-lg">
-                                    <img src="assets/images/logo-dark.png" alt="" height="20">
+                                    <img src="../assets/images/logo-dark.png" alt="" height="20">
                                 </span>
                             </a>
 
                             <a href="index.php" class="logo logo-light">
                                 <span class="logo-sm">
-                                    <img src="assets/images/logo-sm-light.png" alt="" height="22">
+                                    <img src="../assets/images/logo-sm-light.png" alt="" height="22">
                                 </span>
                                 <span class="logo-lg">
-                                    <img src="assets/images/logo-light.png" alt="" height="20">
+                                    <img src="../assets/images/logo-light.png" alt="" height="20">
                                 </span>
                             </a>
                         </div>
@@ -84,7 +87,7 @@
                         <div class="dropdown d-inline-block">
                             <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img class="rounded-circle header-profile-user" src="./assets/images/users/avatar-1.jpg"
+                                <img class="rounded-circle header-profile-user" src="./../assets/images/users/avatar-1.jpg"
                                     alt="Header Avatar">
                                 <span class="d-none d-sm-inline-block ml-1">ssssss</span>
                                 <i class="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
@@ -135,14 +138,14 @@
                             </li>
 
                             <li>
-                                <a href="./rules.php" class="waves-effect">
+                                <a href="./occasion.php" class="waves-effect">
                                     <i class="mdi mdi-view-dashboard"></i>
-                                    <span>الأخبار والمناسبات</span>
+                                    <span>المناسبات العائلية</span>
                                 </a>
                             </li>
 
                             <li>
-                                <a href="./rules.php" class="waves-effect">
+                                <a href="./gallery.php" class="waves-effect">
                                     <i class="mdi mdi-view-dashboard"></i>
                                     <span>مكتبة الصور</span>
                                 </a>
