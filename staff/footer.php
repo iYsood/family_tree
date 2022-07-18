@@ -21,6 +21,7 @@
         <script src="../assets/libs/bootstrap-datepicker/js/bootstrap-hijri-datetimepicker.min.js"></script>
         <script src="../assets/libs/bootstrap-touchspin/jquery.bootstrap-touchspin.min.js"></script>
         <script src="../assets/libs/bootstrap-maxlength/bootstrap-maxlength.min.js"></script>
+        <script src="../assets/libs/bootstrap-select/js/bootstrap-select.min.js"></script>
 
         <!-- form advanced init -->
         <script src="../assets/js/pages/form-advanced.init.js"></script>

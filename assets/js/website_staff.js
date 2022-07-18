@@ -331,3 +331,127 @@ const removeGalleryPhoto = function(el, id){
     });
   }).set('labels', {ok:'حذف', cancel:'الغاء'});
 }
+
+
+// TREEs
+
+const updateTreeUser = function(id){
+  $.ajax({
+      type: "POST",
+      url: 'includes/get_tree_user.php',
+      data: {id: id}, // serializes the form's elements.
+      success: function(result) {
+        result = JSON.parse(result)
+
+        $('#viewModal_mainHead').html(`تحديث بيانات (${result.fullname})`);
+        $("#viewModal_fullname").val(result.fullname)
+        $("#viewModal_father").val(result.father)
+        $("#viewModal_birthday").val(result.birthday)
+        $("#viewModal_city").val(result.city)
+        $("#viewModal_work").val(result.work)
+        $("#viewModal_death_city").val(result.death_city)
+        $("#viewModal_death_date").val(result.death_date)
+        $("#viewModal_daughter_info").val(result.daughter_info)
+        $("#viewModal_extra_info").val(result.extra_info)
+        $("#viewModal_ident").val(result.id)
+        $('#viewModal_action').val('update');
+        $('#viewModal').modal('show');
+      }
+  });
+};
+
+const removeTreeUser = function(id){
+  alertify.confirm('هل أنت متأكد من حذف الاسم؟', function(){
+    $.ajax({
+        type: 'POST',
+        url: 'includes/tree_action.php',
+        data: 'action=delete&ident=' + id,
+        success: function(result) {
+          alertify.set('notifier','position', 'top-center');
+
+          if (result == 'تم الحذف بنجاح'){
+            alertify.success(result);
+            setTimeout(function () {
+              location.reload();
+            }, 1500);
+          }else{
+            alertify.error(result);
+          }
+        }
+    });
+  }).set('labels', {ok:'حذف', cancel:'الغاء'});
+};
+
+$('#treeNameForm').submit( function(e) {
+  e.preventDefault();
+  let formData = new FormData();
+
+  let fullname = $("#viewModal_fullname").val();
+  let father = $("#viewModal_father").val();
+  let birthday = $("#viewModal_birthday").val();
+  let city = $("#viewModal_city").val();
+  let work = $("#viewModal_work").val();
+  let death_city = $("#viewModal_death_city").val();
+  let death_date = $("#viewModal_death_date").val();
+  let daughter_info = $("#viewModal_daughter_info").val();
+  let extra_info = $("#viewModal_extra_info").val();
+  let action = $("#viewModal_action").val();
+  let ident = $("#viewModal_ident").val();
+
+  if (fullname == ''){
+    $('.fullname-feedback').html('الحقل مطلوب');
+  }else{
+    $('.fullname-feedback').html('');
+    formData.append('fullname', fullname);
+    formData.append('father', father);
+    formData.append('birthday', birthday);
+    formData.append('file', $('#viewModal_photo')[0].files[0]);
+    formData.append('city', city);
+    formData.append('work', work);
+    formData.append('death_city', death_city);
+    formData.append('death_date', death_date);
+    formData.append('daughter_info', daughter_info);
+    formData.append('extra_info', extra_info);
+    formData.append('action', action);
+    formData.append('ident', ident);
+
+    $.ajax({
+      type: "POST",
+      url: 'includes/tree_action.php',
+      data: formData,
+      cache: false,
+      contentType: false,
+      processData: false,
+      success: function(result){
+        alertify.set('notifier','position', 'top-center');
+        if (result == 'تمت الإضافة بنجاح' || result == 'تم التحديث بنجاح'){
+          $('#viewModal').modal('hide');
+          alertify.success(result);
+          setTimeout(function () {
+            location.reload();
+          }, 1500);
+        }else{
+          alertify.error(result);
+        }
+      }
+    });
+  }
+
+});
+
+$('#viewModal').on('hidden.bs.modal', function () {
+  $('#viewModal_mainHead').html('اضافة اسم للشجرة');
+  $("#viewModal_fullname").val('');
+  $("#viewModal_father").val('');
+  $("#viewModal_birthday").val('');
+  $("#viewModal_city").val('');
+  $("#viewModal_work").val('');
+  $("#viewModal_death_city").val('');
+  $("#viewModal_death_date").val('');
+  $("#viewModal_daughter_info").val('');
+  $("#viewModal_extra_info").val('');
+  $("#viewModal_action").val('');
+  $("#viewModal_ident").val('');
+
+  console.log(1);
+});

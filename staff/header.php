@@ -37,6 +37,7 @@
 
         <!-- Bootstrap Css -->
         <link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/libs/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet" type="text/css" />
         <!-- Icons Css -->
         <link href="../assets/css/icons.min.css" rel="stylesheet" type="text/css" />
         <!-- App Css-->
@@ -164,9 +165,7 @@
                                 </ul>
                             </li>
 
-                            <li>
-                                <hr>
-                            </li>
+                            <li></li>
 
                             <li>
                                 <a href="../" target="_blank" class=" waves-effect">

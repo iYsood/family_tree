@@ -52,11 +52,9 @@ class MainFunc
       while ($row = $result->fetch_assoc()) {
         array_push($all_names, $row);
       }
-
-      return $all_names;
     }
 
-		return 'حصل خطأ في تحضير بيانات الأسماء بالشجرة';
+		return $all_names;
 	}
 
 	public function get_all_occasion() {

@@ -6,7 +6,7 @@
             </div>
             <div class="col-sm-6">
                 <div class="text-sm-right d-none d-sm-block">
-                    بُرمج من الـ<i class="mdi mdi-heart text-danger"></i> من عبدالرحمن الشمري
+                    بُرمج من الـ<i class="mdi mdi-heart text-danger"></i> من أبو شيهانة العريبي
                 </div>
             </div>
         </div>

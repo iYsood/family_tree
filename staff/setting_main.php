@@ -92,7 +92,7 @@ if($all_settings['website_state'] == true){
       </div>
       <!-- End Page-content -->
 
-<?php include 'get_footer.php'; ?>
+<?php include '../get_footer.php'; ?>
   </div>
   <!-- end main content-->
 
