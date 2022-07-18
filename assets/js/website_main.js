@@ -2,13 +2,11 @@ $(document).ready( function(){
   const path = window.location.pathname;
   const page_end = path.split("/").pop();
   const page_start = page_end.split(".")[0];
-
-  console.log(page_start);
+  const tree_column = $('#fetch_tree_name')
 
   if (page_start == 'lineage' || page_start == 'about' || page_start == 'family_men'){
     $.get("includes/get_data.php?request="+ page_start, function(data, status){
       // alert("Data: " + data + "\nStatus: " + status);
-      console.log(data);
       $('#fetch_'+ page_start).html(data)
     });
   }else if (page_start == 'home'){
@@ -105,6 +103,8 @@ $(document).ready( function(){
 
       // console.log(data.length);
     });
+  }else if(tree_column.length > 0){
+    console.log('YESSSS');
   }
 })
 
