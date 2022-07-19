@@ -23,6 +23,7 @@
         <!-- JAVASCRIPT -->
         <script src="assets/libs/jquery/jquery.min.js"></script>
         <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/js/familytree.js"></script>
     </head>
 
     <body data-sidebar="dark" data-topbar="dark">

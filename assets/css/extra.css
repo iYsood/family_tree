@@ -20,3 +20,19 @@
 #map {
   height: 97vh;
 }
+
+#fetch_tree_name {
+  height: 85vh;
+}
+
+.tree_modal_name {
+  margin: 20% 20px;
+}
+
+.header-title {
+  font-size: 1.5rem;
+}
+
+#bft-ppdf-layout, #bft-ppdf-scale, #bft-ppdf-header, #bft-ppdf-footer, #bft-ppdf-margin {
+  font-family: 'Vazirmatn', sans-serif;
+}

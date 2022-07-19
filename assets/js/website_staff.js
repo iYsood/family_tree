@@ -9,31 +9,6 @@ $(document).ready( function(){
     $.get("includes/get_content.php?page="+ page_start2, function(data, status){
       $('#summernote').summernote("code", data);
     });
-  }else if(page_start == 'view_tree'){
-    !(function (n) {
-        "use strict";
-        function t() {}
-        (t.prototype.updateOutput = function (t) {
-            var e = t.length ? t : n(t.target),
-                a = e.data("output");
-            window.JSON ? a.val(window.JSON.stringify(e.nestable("serialize"))) : a.val("JSON browser support required for this demo.");
-        }),
-            (t.prototype.init = function () {
-                    n("#nestable_list_2").nestable({ group: 1 }).on("change", this.updateOutput),
-                    this.updateOutput(n("#nestable_list_2").data("output", n("#nestable_list_2_output"))),
-                    n("#nestable_list_menu").on("click", function (t) {
-                        var e = n(t.target).data("action");
-                        "expand-all" === e && n(".dd").nestable("expandAll"), "collapse-all" === e && n(".dd").nestable("collapseAll");
-                    }),
-                    n("#nestable_list_3").nestable();
-            }),
-            (n.Nestable = new t()),
-            (n.Nestable.Constructor = t);
-    })(window.jQuery),
-        (function () {
-            "use strict";
-            window.jQuery.Nestable.init();
-        })();
   }else if(page_start == 'occasion'){
     $('#occasion_photo').change(function() {
       var i = $(this).prev('label').clone();
@@ -54,7 +29,6 @@ $(document).ready( function(){
         maxFiles: 2000,
         url: "includes/upload_photo.php",
         success: function (file, response) {
-          // console.log(response);
           $('#photo_name').val(response);
         }
     });
@@ -67,7 +41,7 @@ function updateUser(id){
   $.ajax({
       type: "POST",
       url: 'includes/get_user_info.php',
-      data: {id: id}, // serializes the form's elements.
+      data: {id: id},
       success: function(result) {
         result = JSON.parse(result)
 
@@ -84,10 +58,10 @@ function updateUser(id){
         }
 
         $('#updateUser_mainHead').html(`تحديث بيانات (${result.username})`);
-        $('#updateUser_username').val(result.username); //$('#updateUser_username').html(result.name);
-        $('#updateUser_email').val(result.email); //$('#updateUser_email').html(result.email);
-        $('#updateUser_ident').val(result.id); //$('#updateUser_ident').html(result.phone);
-        $('#updateUser_action').val('update'); //$('#updateUser_ident').html(result.phone);
+        $('#updateUser_username').val(result.username);
+        $('#updateUser_email').val(result.email);
+        $('#updateUser_ident').val(result.id);
+        $('#updateUser_action').val('update');
         $('#updateUserModal').modal('show');
       }
   });
@@ -95,10 +69,10 @@ function updateUser(id){
 
 $('.addNewUser').click( function(){
   $('#updateUser_mainHead').html('اضافة مستخدم جديد');
-  $('#updateUser_username').val(''); //$('#updateUser_username').html(result.name);
-  $('#updateUser_email').val(''); //$('#updateUser_email').html(result.email);
-  $('#updateUser_ident').val(''); //$('#updateUser_ident').html(result.phone);
-  $('#updateUser_action').val('add'); //$('#updateUser_ident').html(result.phone);
+  $('#updateUser_username').val('');
+  $('#updateUser_email').val('');
+  $('#updateUser_ident').val('');
+  $('#updateUser_action').val('add');
 
   for (let i = 0; i < 15; i++) {
     $('#perm_'+ i).prop('checked', false);
@@ -136,7 +110,7 @@ $('#updateUserForm').submit( function(e) {
   $.ajax({
     type: "POST",
     url: 'includes/update_user_info.php',
-    data: form.serialize(), // serializes the form's elements.
+    data: form.serialize(),
     success: function(result){
       $('#updateUserModal').modal('hide');
       alertify.set('notifier','position', 'top-center');
@@ -155,13 +129,11 @@ $('#updateUserForm').submit( function(e) {
 $('#updateContent').submit( function(e) {
   e.preventDefault();
   let form = $(this);
-  // let page = $('#page').val();
-  // let content = $('#summernote').val();
 
   $.ajax({
     type: "POST",
     url: 'includes/update_content.php',
-    data: form.serialize(), // serializes the form's elements.
+    data: form.serialize(),
     success: function(result){
       alertify.set('notifier','position', 'top-center');
       if (result == 'تم التحديث بنجاح'){
@@ -180,14 +152,11 @@ $('#updateSettings').submit( function(e) {
   $.ajax({
     type: "POST",
     url: 'includes/update_settings.php',
-    data: form.serialize(), // serializes the form's elements.
+    data: form.serialize(),
     success: function(result){
       alertify.set('notifier','position', 'top-center');
       if (result == 'تم التحديث بنجاح'){
         alertify.success(result);
-        // setTimeout(function () {
-        //   location.reload();
-        // }, 1500);
       }else{
         alertify.error(result);
       }
@@ -197,13 +166,12 @@ $('#updateSettings').submit( function(e) {
 
 // View Tree
 
-
 $('.viewModal').click( function(){
   $('#updateUser_mainHead').html('اضافة جديد للشجرة');
-  $('#updateUser_username').val(''); //$('#updateUser_username').html(result.name);
-  $('#updateUser_email').val(''); //$('#updateUser_email').html(result.email);
-  $('#updateUser_ident').val(''); //$('#updateUser_ident').html(result.phone);
-  $('#updateUser_action').val('add'); //$('#updateUser_ident').html(result.phone);
+  $('#updateUser_username').val('');
+  $('#updateUser_email').val('');
+  $('#updateUser_ident').val('');
+  $('#updateUser_action').val('add');
 
   for (let i = 0; i < 15; i++) {
     $('#perm_'+ i).prop('checked', false);
@@ -296,7 +264,7 @@ $('#addPhotoForm').submit( function(e) {
     $.ajax({
       type: "POST",
       url: 'includes/add_gallery.php',
-      data: form.serialize(), // serializes the form's elements.
+      data: form.serialize(),
       success: function(result){
         if (result == 'تم إضافة الصورة بنجاح'){
           alertify.success(result);
@@ -339,15 +307,26 @@ const updateTreeUser = function(id){
   $.ajax({
       type: "POST",
       url: 'includes/get_tree_user.php',
-      data: {id: id}, // serializes the form's elements.
+      data: {id: id},
       success: function(result) {
         result = JSON.parse(result)
 
-        $('#viewModal_mainHead').html(`تحديث بيانات (${result.fullname})`);
-        $("#viewModal_fullname").val(result.fullname)
+        if (result.photo != null){
+          let src = `../assets/images/tree/${result.photo}`
+          $("#viewModal_photo_display").html(`
+            <img src="${src}" style="width: 128px;" alt="your image" />
+            <a href="#" onclick="$(this).parent().html(''); $('#viewModal_old_photo_remove').val(1);" class="ml-3 font-size-16 text-danger">ازالة الصورة؟</a>
+          `);
+        }
+
+        $('#viewModal_mainHead').html(`تحديث بيانات (${result.name})`);
+        $("#viewModal_name").val(result.name)
+        // $("#viewModal_fullname").val(result.fullname)
         $("#viewModal_father").val(result.father)
         $("#viewModal_birthday").val(result.birthday)
         $("#viewModal_city").val(result.city)
+        $("#viewModal_old_photo").val(result.photo)
+        $("#viewModal_old_photo_remove").val(0)
         $("#viewModal_work").val(result.work)
         $("#viewModal_death_city").val(result.death_city)
         $("#viewModal_death_date").val(result.death_date)
@@ -360,7 +339,7 @@ const updateTreeUser = function(id){
   });
 };
 
-const removeTreeUser = function(id){
+const removeTreeUser = function(el, id){
   alertify.confirm('هل أنت متأكد من حذف الاسم؟', function(){
     $.ajax({
         type: 'POST',
@@ -371,9 +350,8 @@ const removeTreeUser = function(id){
 
           if (result == 'تم الحذف بنجاح'){
             alertify.success(result);
-            setTimeout(function () {
-              location.reload();
-            }, 1500);
+            let element = el;
+            element.closest('tr').remove();
           }else{
             alertify.error(result);
           }
@@ -382,14 +360,34 @@ const removeTreeUser = function(id){
   }).set('labels', {ok:'حذف', cancel:'الغاء'});
 };
 
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    const reader = new FileReader();
+
+    reader.onload = function (e) {
+      $("#viewModal_photo_display").html('');
+      $("#viewModal_photo_display").html(`
+        <img src="${e.target.result}" style="width: 128px;" alt="your image" />
+        <a href="#" onclick="$(this).parent().html(''); $('#viewModal_old_photo_remove').val(1);" class="ml-3 font-size-16 text-danger">ازالة الصورة؟</a>
+      `);
+    };
+
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
 $('#treeNameForm').submit( function(e) {
   e.preventDefault();
   let formData = new FormData();
+  alertify.set('notifier','position', 'top-center');
 
-  let fullname = $("#viewModal_fullname").val();
+  let name = $("#viewModal_name").val();
+  // let fullname = $("#viewModal_fullname").val();
   let father = $("#viewModal_father").val();
   let birthday = $("#viewModal_birthday").val();
   let city = $("#viewModal_city").val();
+  let old_photo = $("#viewModal_old_photo").val();
+  let old_photo_remove = $("#viewModal_old_photo_remove").val();
   let work = $("#viewModal_work").val();
   let death_city = $("#viewModal_death_city").val();
   let death_date = $("#viewModal_death_date").val();
@@ -398,15 +396,28 @@ $('#treeNameForm').submit( function(e) {
   let action = $("#viewModal_action").val();
   let ident = $("#viewModal_ident").val();
 
-  if (fullname == ''){
-    $('.fullname-feedback').html('الحقل مطلوب');
+  console.log(father);
+
+  if (father != 'أختر الأب...'){
+    fullname = name +' بن '+ $("#viewModal_father option:selected").text();
   }else{
-    $('.fullname-feedback').html('');
+    fullname = name;
+  }
+
+  if (name == ''){
+    $('.name-feedback').html('الحقل مطلوب');
+  }else if (father == ident){
+    alertify.error('<h4 class="text-white">لايمكن أن يكون الأب هو الشخص نفسه!<h4>');
+  }else{
+    $('.name-feedback').html('');
+    formData.append('name', name);
     formData.append('fullname', fullname);
     formData.append('father', father);
     formData.append('birthday', birthday);
     formData.append('file', $('#viewModal_photo')[0].files[0]);
     formData.append('city', city);
+    formData.append('old_photo', old_photo);
+    formData.append('old_photo_remove', old_photo_remove);
     formData.append('work', work);
     formData.append('death_city', death_city);
     formData.append('death_date', death_date);
@@ -423,7 +434,7 @@ $('#treeNameForm').submit( function(e) {
       contentType: false,
       processData: false,
       success: function(result){
-        alertify.set('notifier','position', 'top-center');
+
         if (result == 'تمت الإضافة بنجاح' || result == 'تم التحديث بنجاح'){
           $('#viewModal').modal('hide');
           alertify.success(result);
@@ -441,17 +452,19 @@ $('#treeNameForm').submit( function(e) {
 
 $('#viewModal').on('hidden.bs.modal', function () {
   $('#viewModal_mainHead').html('اضافة اسم للشجرة');
+  $("#viewModal_name").val('');
   $("#viewModal_fullname").val('');
   $("#viewModal_father").val('');
+  $("#viewModal_photo_display").html('');
   $("#viewModal_birthday").val('');
   $("#viewModal_city").val('');
+  $("#viewModal_old_photo").val('');
+  $("#viewModal_old_photo_remove").val(0);
   $("#viewModal_work").val('');
   $("#viewModal_death_city").val('');
   $("#viewModal_death_date").val('');
   $("#viewModal_daughter_info").val('');
   $("#viewModal_extra_info").val('');
-  $("#viewModal_action").val('');
+  $("#viewModal_action").val('add');
   $("#viewModal_ident").val('');
-
-  console.log(1);
 });

@@ -12,7 +12,7 @@
       </div>
       <!-- End Page-content -->
 
-<?php include 'get_footer.php'; ?>
+<?php include '../get_footer.php'; ?>
   </div>
   <!-- end main content-->
 

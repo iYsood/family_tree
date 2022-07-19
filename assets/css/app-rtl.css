@@ -7,8 +7,9 @@ File: Main RTL Css File
 */
 @import url("https://fonts.googleapis.com/css?family=Rubik:300,400,500,700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Vazirmatn:wght@200&display=swap");
-body {
-  font-family: 'Vazirmatn', sans-serif;
+@import url('https://www.fontstatic.com/f=taha-naskh');
+html, body {
+  font-family: 'taha-naskh', sans-serif;
 }
 #page-topbar {
   position: fixed;
@@ -227,6 +228,7 @@ body[data-layout="horizontal"] .page-content {
     margin-top: 15px; } }
 
 .footer {
+  font-family: 'Vazirmatn', sans-serif;
   bottom: 0;
   padding: 20px calc(24px / 2);
   position: absolute;
@@ -388,14 +390,14 @@ body[data-layout="horizontal"] .footer {
     padding: .625rem 1.5rem;
     color: #7c8a96;
     position: relative;
-    font-size: 14.5px;
+    font-size: 1.3rem;
     -webkit-transition: all .4s;
     transition: all .4s; }
     #sidebar-menu ul li a i {
       display: inline-block;
       min-width: 1.75rem;
       padding-bottom: .125em;
-      font-size: 1.07rem;
+      font-size: 1.3rem;
       line-height: 1.40625rem;
       vertical-align: middle;
       color: #7c8a96;
@@ -411,7 +413,7 @@ body[data-layout="horizontal"] .footer {
     padding: 0; }
     #sidebar-menu ul li ul.sub-menu li a {
       padding: .4rem 1.5rem .4rem 3.5rem;
-      font-size: 13.5px;
+      font-size: 1.1rem;
       color: #7c8a96; }
     #sidebar-menu ul li ul.sub-menu li ul.sub-menu {
       padding: 0; }

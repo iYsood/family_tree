@@ -5,5 +5,6 @@ if (isset($_POST)){
 
 	$sql = $conn->query("SELECT * FROM tree_names WHERE id = '$ident';");
 	$row = $sql->fetch_assoc();
+
 	echo json_encode($row);
 }

@@ -13,7 +13,7 @@
                   <div class="col-12">
                       <div class="page-title-box d-flex align-items-center justify-content-between">
                           <h4 class="mb-0 font-size-18">المستخدمين</h4>
-                          <button type="button" class="btn btn-info btn-sm waves-effect waves-light addNewUser" data-toggle="modal" data-target="#updateUserModal">إضافة مستخدم</button>
+                          <button type="button" class="btn btn-info btn-sm waves-effect waves-light addNewUser font-size-18" data-toggle="modal" data-target="#updateUserModal">إضافة مستخدم</button>
 
                           <div class="page-title-right">
                               <ol class="breadcrumb m-0">
@@ -27,20 +27,20 @@
               </div>
               <!-- end page title -->
 
-              <div class="row">
-                  <div class="col-12">
+              <div class="row justify-content-md-center">
+                  <div class="col-7">
                       <div class="card">
                           <div class="card-body">
 
-                              <h4 class="header-title">المستخدمين</h4>
+                              <h4 class="header-title mb-4">المستخدمين</h4>
                               <!-- <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;"> -->
-                              <table class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                              <table class="table table-striped table-bordered table-hover dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                                   <thead>
                                   <tr>
-                                    <th>#</th>
-                                    <th>اسم المستخدم</th>
-                                    <th>البريد الالكتروني</th>
-                                    <th>خيارات</th>
+                                    <th class="col-1 font-size-20">#</th>
+                                    <th class="col-3 font-size-20">اسم المستخدم</th>
+                                    <th class="col-7 font-size-20">البريد الالكتروني</th>
+                                    <th class="col-1 font-size-20">خيارات</th>
                                   </tr>
                                   </thead>
 
@@ -55,10 +55,10 @@ for ($i=0; $i < count($all_users); $i++) {
   $b = $b + 1;
   echo "
   <tr>
-  <td>". $b ."</td>
-  <td>". $all_users[$i]['username'] ."</td>
-  <td>". $all_users[$i]['email'] ."</td>
-  <td>
+  <td class='font-size-18'>". $b ."</td>
+  <td class='font-size-18'>". $all_users[$i]['username'] ."</td>
+  <td class='font-size-18'>". $all_users[$i]['email'] ."</td>
+  <td class='text-center'>
     <span onclick='updateUser(". $all_users[$i]['id'] .")'><i class='mdi mdi-account-edit-outline mr-2' title='تحديث البيانات'></i></span>
     <span onclick='removeUser(". $all_users[$i]['id'] .")'><i class='mdi mdi-trash-can-outline' title='حذف المستخدم'></i></span>
   </td>

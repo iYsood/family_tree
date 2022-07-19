@@ -30,8 +30,6 @@
         <link href="../assets/libs/summernote/summernote-bs4.min.css" rel="stylesheet" type="text/css" />
         <!-- Plugins css -->
         <link href="../assets/libs/dropzone/min/dropzone.min.css" rel="stylesheet" type="text/css" />
-        <!-- nestable2 css -->
-        <link rel="stylesheet" href="../assets/libs/nestable2/jquery.nestable.min.css">
         <!-- Lightbox css -->
         <link href="../assets/libs/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css" />
 
@@ -128,14 +126,10 @@
                             </li>
 
                             <li>
-                                <a href="javascript: void(0);" class="has-arrow waves-effect">
-                                    <i class="mdi mdi-email-multiple-outline"></i>
+                                <a href="./view_tree.php" class="waves-effect">
+                                    <i class="mdi mdi-view-dashboard"></i>
                                     <span>إدارة الشجرة</span>
                                 </a>
-                                <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="view_tree.php">عرض شجري</a></li>
-                                    <li><a href="view_table.php">عرض جدول</a></li>
-                                </ul>
                             </li>
 
                             <li>

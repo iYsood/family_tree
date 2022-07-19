@@ -13,7 +13,7 @@
                   <div class="col-12">
                       <div class="page-title-box d-flex align-items-center justify-content-between">
                           <h4 class="mb-0 font-size-18">مكتبة الصور</h4>
-                          <button type="button" class="btn btn-info btn-sm waves-effect waves-light addNewUser" data-toggle="modal" data-target="#addPhoto">إضافة صورة</button>
+                          <button type="button" class="btn btn-info btn-sm waves-effect waves-light addNewUser font-size-18" data-toggle="modal" data-target="#addPhoto">إضافة صورة</button>
 
                           <div class="page-title-right">
                               <ol class="breadcrumb m-0">

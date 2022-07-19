@@ -8,6 +8,7 @@ if(!empty($_FILES['file']['name'])){
   $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
   $itemUpdatePhoto = true;
 
-  move_uploaded_file($_FILES["file"]["tmp_name"], $target_file);
+  // move_uploaded_file($_FILES["file"]["tmp_name"], $target_file);
+  copy($_FILES["file"]["tmp_name"], $target_file);
   echo $newfilename;
 }

@@ -34,8 +34,6 @@
         <script src="../assets/js/pages/form-validation.init.js"></script>
         <!-- dropzone js -->
         <script src="../assets/libs/dropzone/min/dropzone.min.js"></script>
-        <!-- nestable2 js -->
-        <script src="../assets/libs/nestable2/jquery.nestable.min.js"></script>
         <!-- Magnific Popup-->
         <script src="../assets/libs/magnific-popup/jquery.magnific-popup.min.js"></script>
 
