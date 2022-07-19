@@ -68,11 +68,15 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <img class="rounded-circle header-profile-user" src="./assets/images/users/avatar-1.jpg"
                                     alt="Header Avatar">
-                                <span class="d-none d-sm-inline-block ml-1">ssssss</span>
+                                <span class="d-none d-sm-inline-block ml-1"><?php if(isset($_SESSION['user_session'])){ echo $_SESSION['user_session']['username']; }else{ echo "تسجيل الدخول"; } ?></span>
                                 <i class="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
                             </button>
                             <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="?action=logout"><i class="mdi mdi-logout font-size-16 align-middle mr-1"></i> تسجيل الخروج</a>
+                              <?php if(isset($_SESSION['user_session'])){
+                                echo '<a class="dropdown-item" href="?action=logout"><i class="mdi mdi-logout font-size-16 align-middle mr-1"></i> تسجيل الخروج</a>';
+                              }else{
+                                echo '<a class="dropdown-item" href="./login.php"><i class="mdi mdi-login font-size-16 align-middle mr-1"></i> تسجيل الدخول</a>';
+                              } ?>
                             </div>
                         </div>
 
@@ -139,6 +143,15 @@
                                     <span>مكتبة الصور</span>
                                 </a>
                             </li>
+
+                            <?php if(isset($_SESSION['user_session'])){ ?>
+                              <li>
+                                  <a href="./staff" target="_blank" class="waves-effect">
+                                      <i class="mdi mdi-view-dashboard"></i>
+                                      <span>لوحة التحكم</span>
+                                  </a>
+                              </li>
+                            <?php } ?>
 
                         </ul>
 

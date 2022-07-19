@@ -1,5 +1,7 @@
-<!doctype html><?php require 'includes/function.php'; ?>
+<!doctype html><?php require 'includes/function.php'; if(!isset($_SESSION['user_session'])){ die("<script> window.location.href = '../';</script>"); } ?>
 <html lang="en">
+
+<!-- <?php echo in_array(5, $user_is_admin_perms); ?> -->
 
     <head>
         <meta charset="utf-8" />
@@ -88,11 +90,15 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <img class="rounded-circle header-profile-user" src="./../assets/images/users/avatar-1.jpg"
                                     alt="Header Avatar">
-                                <span class="d-none d-sm-inline-block ml-1">ssssss</span>
+                                    <span class="d-none d-sm-inline-block ml-1"><?php if(isset($_SESSION['user_session'])){ echo $_SESSION['user_session']['username']; }else{ echo "تسجيل الدخول"; } ?></span>
                                 <i class="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
                             </button>
                             <div class="dropdown-menu dropdown-menu-right">
-                                <a class="dropdown-item" href="?action=logout"><i class="mdi mdi-logout font-size-16 align-middle mr-1"></i> تسجيل الخروج</a>
+                              <?php if(isset($_SESSION['user_session'])){
+                                echo '<a class="dropdown-item" href="?action=logout"><i class="mdi mdi-logout font-size-16 align-middle mr-1"></i> تسجيل الخروج</a>';
+                              }else{
+                                echo '<a class="dropdown-item" href="./login.php"><i class="mdi mdi-login font-size-16 align-middle mr-1"></i> تسجيل الدخول</a>';
+                              } ?>
                             </div>
                         </div>
 

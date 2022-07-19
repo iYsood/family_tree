@@ -4,6 +4,8 @@ $(document).ready( function(){
   const page_start = page_end.split(".")[0];
   const tree_column = $('#fetch_tree_name')
 
+  console.log(page_start);
+
   if (page_start == 'lineage' || page_start == 'about' || page_start == 'family_men'){
     $.get("includes/get_data.php?request="+ page_start, function(data, status){
       // alert("Data: " + data + "\nStatus: " + status);
@@ -103,8 +105,34 @@ $(document).ready( function(){
 
       // console.log(data.length);
     });
-  }else if(tree_column.length > 0){
+  }else if(page_start == 'login'){
     console.log('YESSSS');
+    $('#loginForm').submit( function(e) {
+      e.preventDefault();
+      let form = $(this);
+      $('#login-failed').css('display', 'none')
+
+      let username = $('#username').val();
+      let password = $('#password').val();
+
+      if (username != '' && password != ''){
+        $('.btn-submit').html(`<span class="spinner-border spinner-border-sm mr-1" role="status" aria-hidden="true"></span>يرجى الانتظار...`).prop('disabled', true)
+        $.ajax({
+          type: "POST",
+          url: 'includes/login_proccess.php',
+          data: form.serialize(),
+          success: function(result){
+            if (result == 'false'){
+              $('#login-failed').css('display', 'block')
+              $('.btn-submit').html(`تسجيل دخول`).prop('disabled', false);
+            } else {
+              $('#login-failed').html(`<div class="alert alert-success mb-3" role="alert">تم تسجيل الدخول بنجاح، انتظر قليلاً سيتم نقلك تلقائياً</div>`).css('display', 'block')
+              setTimeout(' window.location.href = "./"; ',2000);
+            }
+          }
+        });
+      }
+    });
   }
 })
 
