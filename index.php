@@ -4,8 +4,7 @@
   <!-- Start right Content here -->
   <!-- ============================================================== -->
   <div class="main-content">
-    <div class="page-content mt-n4">
-      <div class="container-fluid" id="fetch_tree_name"></div>
+    <div class="page-content container-fluid mt-n4" id="fetch_tree_name">
 
 <script>
 
@@ -16,6 +15,8 @@ const preview = function(){
   }
 const chart = new FamilyTree(document.getElementById("fetch_tree_name"), {
   enableSearch: false,
+  scaleInitial: FamilyTree.match.width,
+  orientation: FamilyTree.orientation.top,
   siblingSeparation: 100, // بين الشخصين لنفس الأب
   levelSeparation: 85, // بين الأب والابن
   subtreeSeparation: 150, // بين الابن لاب والابن للأب الآخر
@@ -49,6 +50,8 @@ chart.load([
       $is_father = '';
       $is_photo = $website_settings['website_url'] .'/assets/images/tree/no-avatar.png';
       $is_dead = 'alive';
+      $daughter_info = '';
+      $extra_info = '';
 
       if (!is_null($row['father'])){ $is_father = ", mid: ". $row['father']; }
       if($row['is_dead'] == true){ $is_dead = 'dead'; }
@@ -60,19 +63,27 @@ chart.load([
       if (!is_null($row['work'])){ $is_father .= ", work: '". $row['work'] ."'"; }
       if (!is_null($row['death_city'])){ $is_father .= ", death_city: '". $row['death_city'] ."'"; }
       if (!is_null($row['death_date'])){ $is_father .= ", death_date: '". $row['death_date'] ."'"; }
-      if (!is_null($row['daughter_info'])){ $row['daughter_info'] = str_replace("\r\n", "<br>", $row['daughter_info']); $is_father .= ", daughter_info: '". $row['daughter_info'] ."'"; }
-      if (!is_null($row['extra_info'])){ $row['daughter_info'] = str_replace("\r\n", "<br>", $row['daughter_info']); $is_father .= ", extra_info: '". $row['extra_info'] ."'"; }
       if (!is_null($row['photo'])){ $is_photo = "assets/images/tree/". $row['photo']; }
+      if (!is_null($row['daughter_info'])){
+        $daughter_info = str_replace("\r\n", "<br>", $row['daughter_info']);
+        $daughter_info = " ,daughter_info: '". $daughter_info ."'"; }
+      if (!is_null($row['extra_info'])){
+        $extra_info = str_replace("\r\n", "<br>", $row['extra_info']);
+        $extra_info = ", extra_info: '". $extra_info ."'";
+      }
 
       echo "
-        { id: ". $row['id'] .", name: '". $row['name'] ."', title: '". $row['label'] ."', img: '". $is_photo ."', life_status: '". $is_dead ."' ". $is_father ." },";
+        { id: ". $row['id'] .", name: '". $row['name'] ."', title: '". $row['label'] ."', img: '". $is_photo ."', life_status: '". $is_dead ."' ". $is_father . $daughter_info . $extra_info ." },";
     }
   ?>
 ]);
 </script>
 
-      <!-- sample modal content -->
-      <div id="viewTreeDetail" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="viewTreeDetailLabel" aria-hidden="true">
+    </div>
+    <div class="container-fluid">
+      <div class="row justify-content-md-center">
+        <!-- sample modal content -->
+        <div id="viewTreeDetail" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="viewTreeDetailLabel" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered">
               <div class="modal-content">
                 <div class="modal-header">
@@ -86,11 +97,12 @@ chart.load([
                   </div>
               </div><!-- /.modal-content -->
           </div><!-- /.modal-dialog -->
-      </div><!-- /.modal -->
-    </div>
+        </div><!-- /.modal -->
+      </div>
 
 <?php include 'get_footer.php'; ?>
   </div>
+</div>
   <!-- end main content-->
 
 <?php include 'footer.php'; ?>

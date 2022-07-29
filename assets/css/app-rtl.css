@@ -42,13 +42,13 @@ html, body {
   text-align: center;
   width: 250px; }
 
-.logo {
-  line-height: 70px; }
-  .logo .logo-sm {
-    display: none; }
+  .logo {
+    line-height: 70px; }
+    .logo .logo-sm {
+      display: none; }
 
-.logo-light {
-  display: none; }
+  .logo-light {
+    display: none; }
 
 .page-title-box {
   padding-bottom: 24px; }

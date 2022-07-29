@@ -8,6 +8,8 @@
       <div class="page-content">
           <div class="container-fluid">
 
+            <?php if (!in_array(14, $user_is_admin_perms)) { die("<div class='alert alert-danger'>لاتوجد لديك صلاحية لعرض هذه الصفحة</div>"); } ?>
+
               <!-- start page title -->
               <div class="row">
                   <div class="col-12">

@@ -124,46 +124,64 @@
                                 </a>
                             </li>
 
+                            <?php if (in_array(1, $user_is_admin_perms) || in_array(2, $user_is_admin_perms) || in_array(3, $user_is_admin_perms)) { ?>
                             <li>
                                 <a href="users.php" class=" waves-effect">
                                     <i class="mdi mdi-calendar-month"></i>
                                     <span>المستخدمين</span>
                                 </a>
                             </li>
+                            <?php } ?>
 
+                            <?php if (in_array(4, $user_is_admin_perms) || in_array(5, $user_is_admin_perms) || in_array(6, $user_is_admin_perms)) { ?>
                             <li>
                                 <a href="./view_tree.php" class="waves-effect">
                                     <i class="mdi mdi-view-dashboard"></i>
                                     <span>إدارة الشجرة</span>
                                 </a>
                             </li>
+                            <?php } ?>
 
+                            <?php if (in_array(7, $user_is_admin_perms) || in_array(8, $user_is_admin_perms)) { ?>
                             <li>
                                 <a href="./occasion.php" class="waves-effect">
                                     <i class="mdi mdi-view-dashboard"></i>
                                     <span>المناسبات العائلية</span>
                                 </a>
                             </li>
+                            <?php } ?>
 
+                            <?php if (in_array(9, $user_is_admin_perms) || in_array(10, $user_is_admin_perms)) { ?>
                             <li>
                                 <a href="./gallery.php" class="waves-effect">
                                     <i class="mdi mdi-view-dashboard"></i>
                                     <span>مكتبة الصور</span>
                                 </a>
                             </li>
+                            <?php } ?>
 
+                            <?php if (in_array(11, $user_is_admin_perms) || in_array(12, $user_is_admin_perms) || in_array(13, $user_is_admin_perms) || in_array(14, $user_is_admin_perms)) { ?>
                             <li>
                                 <a href="javascript: void(0);" class="has-arrow waves-effect">
                                     <i class="mdi mdi-email-multiple-outline"></i>
                                     <span>الإعدادات</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded="false">
-                                    <li><a href="setting_main.php">اعدادات الموقع</a></li>
-                                    <li><a href="setting_family_lineage.php">نسب العائلة</a></li>
-                                    <li><a href="setting_family_about.php">عن العائلة</a></li>
-                                    <li><a href="setting_family_men.php">من رجالات العائلة</a></li>
+                                    <?php if (in_array(11, $user_is_admin_perms)) { ?>
+                                      <li><a href="setting_main.php">اعدادات الموقع</a></li>
+                                    <?php } ?>
+                                    <?php if (in_array(12, $user_is_admin_perms)) { ?>
+                                      <li><a href="setting_family_lineage.php">نسب العائلة</a></li>
+                                    <?php } ?>
+                                    <?php if (in_array(13, $user_is_admin_perms)) { ?>
+                                      <li><a href="setting_family_about.php">عن العائلة</a></li>
+                                    <?php } ?>
+                                    <?php if (in_array(14, $user_is_admin_perms)) { ?>
+                                      <li><a href="setting_family_men.php">من رجالات العائلة</a></li>
+                                    <?php } ?>
                                 </ul>
                             </li>
+                            <?php } ?>
 
                             <li></li>
 

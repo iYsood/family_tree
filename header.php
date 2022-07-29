@@ -5,10 +5,10 @@
         <meta charset="utf-8" />
         <title>موقع <?php echo $website_settings['website_name']; ?></title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
-        <meta content="Themesdesign" name="author" />
+        <meta content="موقع <?php echo $website_settings['website_name']; ?> الجرافا حاضرة وبادية هم ابناء محمد بن جريفان بن محمد ينتسبون إلى الإلبينداء من المفضل من آل يحيا من عبدة من قبيلة شمر ." name="description" />
+        <meta content="Abdulrhman - iYsood" name="author" />
         <!-- App favicon -->
-        <link rel="shortcut icon" href="assets/images/favicon.ico">
+        <link rel="shortcut icon" href="assets/images/favicon.png">
         <!-- Lightbox css -->
         <link href="assets/libs/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css" />
         <!-- Bootstrap Css -->
@@ -38,19 +38,19 @@
                         <div class="navbar-brand-box">
                             <a href="index.php" class="logo logo-dark">
                                 <span class="logo-sm">
-                                    <img src="assets/images/logo-sm-dark.png" alt="" height="22">
+                                    <img src="assets/images/logo-sm-dark.png" alt="" height="49">
                                 </span>
                                 <span class="logo-lg">
-                                    <img src="assets/images/logo-dark.png" alt="" height="20">
+                                    <img src="assets/images/logo-dark.png" alt="" height="85">
                                 </span>
                             </a>
 
                             <a href="index.php" class="logo logo-light">
                                 <span class="logo-sm">
-                                    <img src="assets/images/logo-sm-light.png" alt="" height="22">
+                                    <img src="assets/images/logo-sm-light.png" alt="" height="49">
                                 </span>
                                 <span class="logo-lg">
-                                    <img src="assets/images/logo-light.png" alt="" height="20">
+                                    <img src="assets/images/logo-light.png" alt="" height="85">
                                 </span>
                             </a>
                         </div>
@@ -66,7 +66,7 @@
                         <div class="dropdown d-inline-block">
                             <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img class="rounded-circle header-profile-user" src="./assets/images/users/avatar-1.jpg"
+                                <img class="rounded-circle header-profile-user" src="./assets/images/avatar-1.jpg"
                                     alt="Header Avatar">
                                 <span class="d-none d-sm-inline-block ml-1"><?php if(isset($_SESSION['user_session'])){ echo $_SESSION['user_session']['username']; }else{ echo "تسجيل الدخول"; } ?></span>
                                 <i class="mdi mdi-chevron-down d-none d-sm-inline-block"></i>

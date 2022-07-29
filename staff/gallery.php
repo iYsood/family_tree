@@ -8,12 +8,16 @@
       <div class="page-content">
           <div class="container-fluid">
 
+            <?php if (!in_array(9, $user_is_admin_perms) && !in_array(10, $user_is_admin_perms)) { die("<div class='alert alert-danger'>لاتوجد لديك صلاحية لعرض هذه الصفحة</div>"); } ?>
+
               <!-- start page title -->
               <div class="row">
                   <div class="col-12">
                       <div class="page-title-box d-flex align-items-center justify-content-between">
                           <h4 class="mb-0 font-size-18">مكتبة الصور</h4>
-                          <button type="button" class="btn btn-info btn-sm waves-effect waves-light addNewUser font-size-18" data-toggle="modal" data-target="#addPhoto">إضافة صورة</button>
+                          <?php if (in_array(9, $user_is_admin_perms)) { ?>
+                            <button type="button" class="btn btn-info btn-sm waves-effect waves-light addNewUser font-size-18" data-toggle="modal" data-target="#addPhoto">إضافة صورة</button>
+                          <?php } ?>
 
                           <div class="page-title-right">
                               <ol class="breadcrumb m-0">
@@ -71,7 +75,9 @@
               </div>
           </div>
       </a>
-      <button type="button" class="btn btn-danger mt-2" onclick="removeGalleryPhoto(this, '<?php echo $this_galleriy['id']; ?>')"> <i class="ti-trash"></i> حذف الصورة </button>
+      <?php if (in_array(10, $user_is_admin_perms)) { ?>
+        <button type="button" class="btn btn-danger mt-2" onclick="removeGalleryPhoto(this, '<?php echo $this_galleriy['id']; ?>')"> <i class="ti-trash"></i> حذف الصورة </button>
+      <?php } ?>
   </div>
 </div>
 <?php

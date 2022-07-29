@@ -8,6 +8,8 @@
       <div class="page-content">
           <div class="container-fluid">
 
+            <?php if (!in_array(7, $user_is_admin_perms) && !in_array(8, $user_is_admin_perms)) { die("<div class='alert alert-danger'>لاتوجد لديك صلاحية لعرض هذه الصفحة</div>"); } ?>
+
               <!-- start page title -->
               <div class="row">
                   <div class="col-12">
@@ -53,7 +55,9 @@
 ?>
 <tr class="text-center">
   <td class="font-size-18"><?php echo $this_occasion['title']; ?></td>
-  <td class="font-size-18"><i class="mdi mdi-trash-can" title="Remove this" onclick="removeOccasion(this, <?php echo $this_occasion['id']; ?>)"></i></td>
+  <?php if (in_array(8, $user_is_admin_perms)) { ?>
+    <td class="font-size-18"><i class="mdi mdi-trash-can" title="Remove this" onclick="removeOccasion(this, <?php echo $this_occasion['id']; ?>)"></i></td>
+  <?php } ?>
 </tr>
 <?php
     }
@@ -71,6 +75,7 @@
                           <div class="card-body">
                             <h4 class="mb-3 font-size-20">اضافة مناسبة جديدة</h4>
 
+                            <?php if (in_array(7, $user_is_admin_perms)) { ?>
                             <form id="addOccasion" autocomplete="off" enctype="multipart/form-data">
                               <div class="form-group">
                                 <label class="font-size-18" for="occasion_title">عنوان المناسبة</label>
@@ -106,6 +111,9 @@
                                 <button type="submit" class="btn btn-success waves-effect waves-light mr-1 font-size-18" style="width: 100%;">تنفيذ</button>
                               </div>
                             </form>
+                            <?php }else{?>
+                              <div class="alert alert-warning">لاتوجد معك صلاحية إضافة المناسبات</div>
+                            <?php } ?>
 
                           </div>
                       </div>

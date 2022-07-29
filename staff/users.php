@@ -8,12 +8,16 @@
       <div class="page-content">
           <div class="container-fluid">
 
+            <?php if (!in_array(1, $user_is_admin_perms) && !in_array(2, $user_is_admin_perms) && !in_array(3, $user_is_admin_perms)) { die("<div class='alert alert-danger'>لاتوجد لديك صلاحية لعرض هذه الصفحة</div>"); } ?>
+
               <!-- start page title -->
               <div class="row">
                   <div class="col-12">
                       <div class="page-title-box d-flex align-items-center justify-content-between">
                           <h4 class="mb-0 font-size-18">المستخدمين</h4>
+                          <?php if (in_array(1, $user_is_admin_perms)) { ?>
                           <button type="button" class="btn btn-info btn-sm waves-effect waves-light addNewUser font-size-18" data-toggle="modal" data-target="#updateUserModal">إضافة مستخدم</button>
+                          <?php } ?>
 
                           <div class="page-title-right">
                               <ol class="breadcrumb m-0">
@@ -53,17 +57,17 @@ $all_users = $users->get_all();
 $b = 0;
 for ($i=0; $i < count($all_users); $i++) {
   $b = $b + 1;
-  echo "
+  ?>
   <tr>
-  <td class='font-size-18'>". $b ."</td>
-  <td class='font-size-18'>". $all_users[$i]['username'] ."</td>
-  <td class='font-size-18'>". $all_users[$i]['email'] ."</td>
+  <td class='font-size-18'><?php echo $b; ?></td>
+  <td class='font-size-18'><?php echo $all_users[$i]['username']; ?></td>
+  <td class='font-size-18'><?php echo $all_users[$i]['email']; ?></td>
   <td class='text-center'>
-    <span onclick='updateUser(". $all_users[$i]['id'] .")'><i class='mdi mdi-account-edit-outline mr-2' title='تحديث البيانات'></i></span>
-    <span onclick='removeUser(". $all_users[$i]['id'] .")'><i class='mdi mdi-trash-can-outline' title='حذف المستخدم'></i></span>
+    <?php if (in_array(2, $user_is_admin_perms)) { ?><span onclick='updateUser(<?php echo $all_users[$i]['id']; ?>)'><i class='mdi mdi-account-edit-outline mr-2' title='تحديث البيانات'></i></span><?php } ?>
+    <?php if (in_array(3, $user_is_admin_perms)) { ?><span onclick='removeUser(<?php echo $all_users[$i]['id']; ?>'><i class='mdi mdi-trash-can-outline' title='حذف المستخدم'></i></span><?php } ?>
   </td>
   </tr>
-  ";
+  <?php
 }
 ?>
 

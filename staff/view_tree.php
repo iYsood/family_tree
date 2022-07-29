@@ -8,12 +8,16 @@
       <div class="page-content">
           <div class="container-fluid">
 
+<?php if (!in_array(4, $user_is_admin_perms) && !in_array(5, $user_is_admin_perms) && !in_array(6, $user_is_admin_perms)) { die("<div class='alert alert-danger'>لاتوجد لديك صلاحية لعرض هذه الصفحة</div>"); } ?>
+
               <!-- start page title -->
               <div class="row">
                   <div class="col-12">
                       <div class="page-title-box d-flex align-items-center justify-content-between">
                           <h4 class="mb-0">ادارة الشجرة</h4>
-                          <button type="button" class="btn btn-info btn-sm waves-effect waves-light viewModal font-size-18" data-toggle="modal" data-target="#viewModal">إضافة جديد</button>
+                          <?php if (in_array(4, $user_is_admin_perms)) { ?>
+                            <button type="button" class="btn btn-info btn-sm waves-effect waves-light viewModal font-size-18" data-toggle="modal" data-target="#viewModal">إضافة جديد</button>
+                          <?php } ?>
 
                           <div class="page-title-right">
                               <ol class="breadcrumb m-0">
@@ -54,17 +58,21 @@ if (count($all_users) > 0){
   $b = 0;
   for ($i=0; $i < count($all_users); $i++) {
     $b = $b + 1;
-    echo "
+    ?>
     <tr>
-    <td class='font-size-18'>". $b ."</td>
-    <td class='font-size-18'>". $all_users[$i]['name'] ."</td>
-    <td class='font-size-18'>". $all_users[$i]['fullname'] ."</td>
+    <td class='font-size-18'><?php echo $b; ?></td>
+    <td class='font-size-18'><?php echo $all_users[$i]['name']; ?></td>
+    <td class='font-size-18'><?php echo $all_users[$i]['fullname']; ?></td>
     <td class='text-center'>
-      <span onclick='updateTreeUser(". $all_users[$i]['id'] .")'><i class='mdi mdi-account-edit-outline mr-2' title='تحديث البيانات'></i></span>
-      <span onclick='removeTreeUser(this, ". $all_users[$i]['id'] .")'><i class='mdi mdi-trash-can-outline' title='حذف الاسم'></i></span>
+      <?php if (in_array(5, $user_is_admin_perms)) { ?>
+        <span onclick='updateTreeUser(<?php echo $all_users[$i]['id']; ?>)'><i class='mdi mdi-account-edit-outline mr-2' title='تحديث البيانات'></i></span>
+      <?php } ?>
+      <?php if (in_array(6, $user_is_admin_perms)) { ?>
+        <span onclick='removeTreeUser(this, <?php echo $all_users[$i]['id']; ?>)'><i class='mdi mdi-trash-can-outline' title='حذف الاسم'></i></span>
+      <?php } ?>
     </td>
     </tr>
-    ";
+    <?php
   }
 }else{
   echo "
